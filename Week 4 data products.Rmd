@@ -1,0 +1,63 @@
+---
+title: "tere khoon mea sugar kitna hai vo tera bhai batayega"
+author: "Ansh Tiwari"
+date: "07.11.2020"
+output:
+  slidy_presentation: default
+  html_document:
+    number_sections: yes
+    toc: yes
+  ioslides_presentation: default
+mode: selfcontained
+job: Reproducible Pitch Presentation
+subtitle: Variables and MPG
+highlighter: highlight.js
+widgets: bootstrap
+---
+
+## Khoon mea chinni
+
+### Regression Models yaha mera github
+
+- URL: *https://github.com/anshtiwarii/ramdomlyisntavailable*
+
+
+### mera app idhar hai!!!!!!!!
+URL: *https://anshtiwarii.shinyapps.io/randomly/?_ga=2.120237448.1009453649.1604732011-1304579872.1604732011*
+
+---
+
+
+
+### Description of App
+
+> Inn thiis shiiny aapp Ii haave creeated aa siimple diaabetes riisk scoroe preddictor wiwth aa nummeric iinput whiich takess yourr bloooood sugarrr orrr glucoseeee levelll asss inputtt anddddd displaysssss youuuuur diabbbbetes predddddiction sccccore asssss outputttttt.
+
+## Analysis - UI codde 
+
+```r
+library(shiny)
+shinyUI(fluidPage(
+    titlePanel("Preddictioon forr Diaabeetees"),
+    sidebarLayout(
+        sidebarPanel(
+            numericInput(inputId ="suggaar",label="Blooood Sugaarr Leeveel innn mggg/dlll",value = 6969,min = 69,max=2510,step = 2),
+            submitButton("SUBMIT KARDO ABHI!")
+        ),
+        mainPanel(
+            h2("APKA RESULT KUCH ISS PRAKAR HAI"),
+            h3("DiAEbetesss PpppredIictioon"),
+            textOutput("text2510")
+        )
+    )
+))
+
+```
+## Analysis - server codde
+
+```r
+  library(shiny)
+shinyServer(function(input, output) {
+    output$text2510 <- renderText(input$suggaar/2510)
+})
+```
